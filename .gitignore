@@ -1,0 +1,30 @@
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.sln.iml
+
+# Build results
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# IDE files
+*.suo
+*.VC.db
+.vscode/settings.json
+
+# NuGet
+.nuget/
+*.nupkg
+*.snupkg
+
+# Test Results
+TestResults/
+*.trx
+
+# OS files
+.DS_Store
+Thumbs.db
