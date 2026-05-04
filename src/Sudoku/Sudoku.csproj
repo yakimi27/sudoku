@@ -17,8 +17,4 @@
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
     </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="../Sudoku.Tests/Sudoku.Tests.csproj" />
-    </ItemGroup>
 </Project>
