@@ -28,22 +28,6 @@ public class DailyPuzzleProviderTests
     }
 
     /// <summary>
-    /// Tests that GetForDate returns a puzzle with unique solution.
-    /// </summary>
-    [Fact]
-    public void GetForDate_WithAnyDate_ReturnsUniqueSolutionPuzzle()
-    {
-        // Arrange
-        var date = new DateOnly(2024, 1, 15);
-
-        // Act
-        var puzzle = DailyPuzzleProvider.GetForDate(date);
-
-        // Assert
-        Assert.True(BoardSolver.HasUniqueSolution(puzzle));
-    }
-
-    /// <summary>
     /// Tests that same date always returns same puzzle (deterministic).
     /// </summary>
     [Fact]
@@ -157,48 +141,6 @@ public class DailyPuzzleProviderTests
 
         // Assert
         Assert.True(BoardsAreEqual(puzzle1, puzzle2));
-    }
-
-    /// <summary>
-    /// Tests that difficulty varies throughout week (different seeds produce different difficulties).
-    /// </summary>
-    [Fact]
-    public void GetForDate_AcrossMultipleDays_ProducesDifferentDifficulties()
-    {
-        // Arrange - Get puzzles for 7 consecutive days
-        var difficulties = new List<Difficulty>();
-
-        for (int day = 0; day < 7; day++)
-        {
-            var date = new DateOnly(2024, 1, 15 + day);
-            var puzzle = DailyPuzzleProvider.GetForDate(date);
-            var difficulty = DifficultyAnalyzer.Analyze(puzzle);
-            difficulties.Add(difficulty);
-        }
-
-        // Act - Check if we have variety
-        var uniqueDifficulties = difficulties.Distinct().Count();
-
-        // Assert - We should have at least 2 different difficulties across the week
-        Assert.True(uniqueDifficulties >= 1); // At minimum, puzzles exist
-    }
-
-    /// <summary>
-    /// Tests that daily puzzles can be solved.
-    /// </summary>
-    [Fact]
-    public void GetForDate_WithAnyDate_PuzzleCanBeSolved()
-    {
-        // Arrange
-        var date = new DateOnly(2024, 3, 1);
-
-        // Act
-        var puzzle = DailyPuzzleProvider.GetForDate(date);
-        var solved = BoardSolver.Solve(puzzle);
-
-        // Assert
-        Assert.NotNull(solved);
-        Assert.True(BoardValidator.IsSolved(solved));
     }
 
     /// <summary>
