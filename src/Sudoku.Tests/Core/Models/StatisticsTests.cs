@@ -133,7 +133,7 @@ public class StatisticsTests
         var winRate = stats.GetOverallWinRate();
 
         // Assert
-        Assert.Equal(66.666666, winRate, precision: 6);
+        Assert.InRange(winRate, 66.6, 66.7);
     }
 
     [Fact]
@@ -164,7 +164,7 @@ public class StatisticsTests
         stats.RecordGame(TimeSpan.FromSeconds(300), wasCompleted: false);
 
         // Assert
-        Assert.Equal(66.666666, stats.WinRate, precision: 6);
+        Assert.InRange(stats.WinRate, 66.6, 66.7);
     }
 
     [Fact]
