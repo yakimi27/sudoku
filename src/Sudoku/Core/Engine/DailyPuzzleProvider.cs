@@ -178,12 +178,13 @@ public static class DailyPuzzleProvider
 
     /// <summary>
     /// Removes cells to create the puzzle, using seeded random for consistency.
+    /// Uses simplified removal without uniqueness checks to avoid infinite loops.
     /// </summary>
     private static SudokuBoard RemoveCellsWithSeed(SudokuBoard completeBoard, Difficulty difficulty, int seed)
     {
         var puzzle = completeBoard.Clone();
         var random = new Random(seed);
-        var cellsToRemove = GetTargetEmptyCount(difficulty);
+        var targetEmpty = GetTargetEmptyCount(difficulty);
         var removedCount = 0;
 
         var positions = new List<(int, int)>();
@@ -199,23 +200,15 @@ public static class DailyPuzzleProvider
 
         foreach (var (row, col) in positions)
         {
-            if (removedCount >= cellsToRemove)
+            if (removedCount >= targetEmpty)
                 break;
 
             var cell = puzzle.GetCell(row, col);
-            if (!cell.IsGiven && cell.Value > 0)
+            if (cell.Value > 0 && !cell.IsGiven)
             {
                 var emptyCell = new Cell(row, col, value: 0, state: Enums.CellState.Empty);
                 puzzle.SetCell(row, col, emptyCell);
-
-                if (BoardSolver.HasUniqueSolution(puzzle))
-                {
-                    removedCount++;
-                }
-                else
-                {
-                    puzzle.SetCell(row, col, cell);
-                }
+                removedCount++;
             }
         }
 
