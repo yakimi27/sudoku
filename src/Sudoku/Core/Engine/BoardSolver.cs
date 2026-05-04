@@ -153,10 +153,10 @@ public static class BoardSolver
     /// <summary>
     /// Counts the number of solutions, stopping after finding 2 for efficiency.
     /// </summary>
-    private static void CountSolutions(SudokuBoard board, ref int count)
+    private static void CountSolutions(SudokuBoard board, ref int count, int maxSolutions = 2)
     {
-        if (count > 1)
-            return; // Stop counting after 2 solutions found
+        if (count >= maxSolutions)
+            return; // Stop counting after max solutions found
 
         // Find first empty cell
         for (int row = 0; row < 9; row++)
@@ -169,16 +169,22 @@ public static class BoardSolver
                     // Try each digit
                     foreach (var digit in ValidDigits)
                     {
+                        if (count >= maxSolutions)
+                            return;
+
                         if (IsValidMove(board, row, col, digit))
                         {
                             var newCell = new Cell(row, col, value: digit, state: Enums.CellState.Filled);
                             board.SetCell(row, col, newCell);
 
-                            CountSolutions(board, ref count);
+                            CountSolutions(board, ref count, maxSolutions);
 
                             // Backtrack
                             var emptyCell = new Cell(row, col, value: 0);
                             board.SetCell(row, col, emptyCell);
+
+                            if (count >= maxSolutions)
+                                return;
                         }
                     }
 
