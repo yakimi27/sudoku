@@ -4,6 +4,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <IsTestProject>true</IsTestProject>
+        <WindowsPackageType>None</WindowsPackageType>
     </PropertyGroup>
 
     <ItemGroup>
