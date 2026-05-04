@@ -178,15 +178,12 @@ public class GameRecordTests
     [Fact]
     public void CalculateScore_ExcessTime_ReducesScore()
     {
-        // Arrange
-        var baseTime = Difficulty.Medium;
-
         // Act
         var scoreOnTime = GameRecord.CalculateScore(Difficulty.Medium, TimeSpan.FromSeconds(600)); // 10 min
         var scoreWithExcess = GameRecord.CalculateScore(Difficulty.Medium, TimeSpan.FromSeconds(1200)); // 20 min, 10 min excess
 
         // Assert
-        Assert.Greater(scoreOnTime, scoreWithExcess);
+        Assert.True(scoreOnTime > scoreWithExcess);
     }
 
     [Fact]
