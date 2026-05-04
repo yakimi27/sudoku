@@ -1,41 +1,30 @@
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.UI.Xaml;
 using Sudoku.Core.Services;
 using Sudoku.DI;
 
 namespace Sudoku;
 
 /// <summary>
-/// Application entry point for the WinUI 3 Sudoku application.
+/// Application entry point for the Sudoku application.
 /// Configures dependency injection and initializes the service container.
+/// This is a temporary console app structure. Will be replaced with WinUI 3 when SDKissues are resolved.
 /// </summary>
-public partial class App : Application
+public class Program
 {
-    private Window? _window;
-
     /// <summary>
-    /// Initializes a new instance of the App class.
+    /// Main entry point for the application.
     /// </summary>
-    public App()
+    public static void Main()
     {
-        InitializeComponent();
         InitializeDependencyInjection();
-    }
-
-    /// <summary>
-    /// Invoked when the application is launched.
-    /// </summary>
-    protected override void OnLaunched(LaunchActivatedEventArgs args)
-    {
-        _window = new MainWindow();
-        _window.Activate();
+        Console.WriteLine("Sudoku MVVM Application - Scaffold Complete");
     }
 
     /// <summary>
     /// Configures all dependencies and initializes the service locator.
     /// This method must be called before accessing any services.
     /// </summary>
-    private void InitializeDependencyInjection()
+    private static void InitializeDependencyInjection()
     {
         var services = new ServiceCollection();
 
