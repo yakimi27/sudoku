@@ -22,17 +22,17 @@ public class LocalStorageServiceTests
     public async Task SaveAsync_PersistsData()
     {
         // Arrange
-        var key = "test_data";
-        var data = new { Name = "TestPlayer", Level = 5 };
+        var key = "test_data_" + Guid.NewGuid();
+        var data = new TestData { Name = "TestPlayer", Level = 5 };
 
         // Act
         await _service.SaveAsync(key, data);
-        var loaded = await _service.LoadAsync<dynamic>(key);
+        var loaded = await _service.LoadAsync<TestData>(key);
 
         // Assert
         Assert.NotNull(loaded);
-        Assert.Equal("TestPlayer", (string)loaded.Name);
-        Assert.Equal(5, (int)loaded.Level);
+        Assert.Equal("TestPlayer", loaded.Name);
+        Assert.Equal(5, loaded.Level);
     }
 
     /// <summary>
@@ -122,6 +122,7 @@ public class LocalStorageServiceTests
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
+        public int Level { get; set; }
         public List<int> Items { get; set; } = new();
     }
 }
