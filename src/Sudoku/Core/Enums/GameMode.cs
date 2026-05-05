@@ -11,17 +11,18 @@ public enum GameMode
     Standard = 0,
 
     /// <summary>
-    /// Timed mode with countdown timer.
+    /// Thermometer Mode: values must strictly increase along thermometer paths.
     /// </summary>
-    Timed = 1,
+    Thermometer = 1,
 
     /// <summary>
-    /// Puzzle mode with limited hints.
+    /// Killer Mode: cells grouped into cages with sum constraints.
     /// </summary>
-    Puzzle = 2,
+    Killer = 2,
 
     /// <summary>
-    /// Campaign mode with multiple levels.
+    /// Mini Mode: 6x6 Sudoku with 2x3 blocks and digits 1-6.
     /// </summary>
-    Campaign = 3
+    Mini = 3
 }
+

@@ -180,7 +180,7 @@ public class GameSessionTests
     {
         // Arrange
         var board = CreateTestBoard();
-        var session = new GameSession(board, GameMode.Timed, Difficulty.Hard);
+        var session = new GameSession(board, GameMode.Thermometer, Difficulty.Hard);
         session.UpdateElapsedTime(TimeSpan.FromSeconds(300));
         session.UseHint();
 
@@ -189,7 +189,7 @@ public class GameSessionTests
 
         // Assert
         Assert.Equal(session.SessionId, summary.SessionId);
-        Assert.Equal(GameMode.Timed, summary.GameMode);
+        Assert.Equal(GameMode.Thermometer, summary.GameMode);
         Assert.Equal(Difficulty.Hard, summary.Difficulty);
         Assert.Equal(TimeSpan.FromSeconds(300), summary.ElapsedTime);
         Assert.Equal(1, summary.HintsUsed);

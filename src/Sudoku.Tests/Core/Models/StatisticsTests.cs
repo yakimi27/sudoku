@@ -94,8 +94,8 @@ public class StatisticsTests
         // Arrange
         var stats = new Statistics();
         stats.RecordGame(GameMode.Standard, Difficulty.Easy, TimeSpan.FromSeconds(100), wasCompleted: false);
-        stats.RecordGame(GameMode.Timed, Difficulty.Medium, TimeSpan.FromSeconds(200), wasCompleted: false);
-        stats.RecordGame(GameMode.Puzzle, Difficulty.Hard, TimeSpan.FromSeconds(300), wasCompleted: false);
+        stats.RecordGame(GameMode.Thermometer, Difficulty.Medium, TimeSpan.FromSeconds(200), wasCompleted: false);
+        stats.RecordGame(GameMode.Killer, Difficulty.Hard, TimeSpan.FromSeconds(300), wasCompleted: false);
 
         // Act
         var total = stats.GetTotalGamesPlayed();
@@ -143,7 +143,7 @@ public class StatisticsTests
         var stats = new Statistics();
         stats.RecordGame(GameMode.Standard, Difficulty.Easy, TimeSpan.FromSeconds(100), wasCompleted: true);
         stats.RecordGame(GameMode.Standard, Difficulty.Easy, TimeSpan.FromSeconds(200), wasCompleted: false);
-        stats.RecordGame(GameMode.Timed, Difficulty.Medium, TimeSpan.FromSeconds(150), wasCompleted: true);
+        stats.RecordGame(GameMode.Thermometer, Difficulty.Medium, TimeSpan.FromSeconds(150), wasCompleted: true);
 
         // Act
         var totalTime = stats.GetTotalTimeSpent();
@@ -192,7 +192,7 @@ public class StatisticsTests
         // Arrange
         var stats = new Statistics();
         stats.RecordGame(GameMode.Standard, Difficulty.Easy, TimeSpan.FromSeconds(100), wasCompleted: true);
-        stats.RecordGame(GameMode.Timed, Difficulty.Hard, TimeSpan.FromSeconds(500), wasCompleted: true);
+        stats.RecordGame(GameMode.Killer, Difficulty.Hard, TimeSpan.FromSeconds(500), wasCompleted: true);
 
         // Act
         stats.ResetAll();
@@ -209,7 +209,7 @@ public class StatisticsTests
         var stats = new Statistics();
 
         // Act
-        var hardStats = stats.GetStats(GameMode.Campaign, Difficulty.Expert);
+        var hardStats = stats.GetStats(GameMode.Mini, Difficulty.Expert);
 
         // Assert
         Assert.Equal(0, hardStats.GamesPlayed);
