@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Sudoku.Core.Models;
 
 namespace Sudoku.Core.Commands;
@@ -72,18 +73,17 @@ public sealed class SetNoteCommand : IGameCommand
     public void Execute(SudokuBoard board)
     {
         var cell = board.GetCell(_row, _column);
-        var newNotes = new List<int>(cell.Notes);
+        var newNotes = cell.Notes;
 
         if (_wasPresent)
         {
             // Remove the note
-            newNotes.Remove(_digit);
+            newNotes = newNotes.Remove(_digit);
         }
         else
         {
             // Add the note
-            if (!newNotes.Contains(_digit))
-                newNotes.Add(_digit);
+            newNotes = newNotes.Add(_digit);
         }
 
         var updatedCell = cell.WithNotes(newNotes);
@@ -97,18 +97,17 @@ public sealed class SetNoteCommand : IGameCommand
     public void Undo(SudokuBoard board)
     {
         var cell = board.GetCell(_row, _column);
-        var newNotes = new List<int>(cell.Notes);
+        var newNotes = cell.Notes;
 
         if (_wasPresent)
         {
             // Undo removal: add note back
-            if (!newNotes.Contains(_digit))
-                newNotes.Add(_digit);
+            newNotes = newNotes.Add(_digit);
         }
         else
         {
             // Undo addition: remove note
-            newNotes.Remove(_digit);
+            newNotes = newNotes.Remove(_digit);
         }
 
         var updatedCell = cell.WithNotes(newNotes);

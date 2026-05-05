@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Sudoku.Core.Commands;
 using Sudoku.Core.Models;
 using Xunit;
@@ -17,7 +18,7 @@ public class SetNoteCommandTests
     {
         // Arrange
         var board = SudokuBoard.CreateEmpty();
-        var cellBefore = board.GetCell(0, 0).WithNotes(new List<int> { 1, 3, 5 });
+        var cellBefore = board.GetCell(0, 0).WithNotes(ImmutableHashSet.Create(1, 3, 5));
         board.SetCell(0, 0, cellBefore);
 
         var command = new SetNoteCommand(0, 0, digit: 3, wasPresent: true);
@@ -40,7 +41,7 @@ public class SetNoteCommandTests
     {
         // Arrange
         var board = SudokuBoard.CreateEmpty();
-        var cellBefore = board.GetCell(0, 0).WithNotes(new List<int> { 1, 5 });
+        var cellBefore = board.GetCell(0, 0).WithNotes(ImmutableHashSet.Create(1, 5));
         board.SetCell(0, 0, cellBefore);
 
         var command = new SetNoteCommand(0, 0, digit: 3, wasPresent: false);
@@ -61,7 +62,7 @@ public class SetNoteCommandTests
     {
         // Arrange
         var board = SudokuBoard.CreateEmpty();
-        var cellBefore = board.GetCell(0, 0).WithNotes(new List<int> { 3 });
+        var cellBefore = board.GetCell(0, 0).WithNotes(ImmutableHashSet.Create(3));
         board.SetCell(0, 0, cellBefore);
 
         var command = new SetNoteCommand(0, 0, digit: 3, wasPresent: true);

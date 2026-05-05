@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Sudoku.Core.Commands;
 using Sudoku.Core.Enums;
 using Sudoku.Core.Models;
@@ -18,7 +19,7 @@ public class ClearCellCommandTests
     {
         // Arrange
         var board = SudokuBoard.CreateEmpty();
-        var filledCell = new Cell(0, 0, value: 5, state: CellState.Filled).WithNotes(new List<int> { 1, 3 });
+        var filledCell = new Cell(0, 0, value: 5, state: CellState.Filled).WithNotes(ImmutableHashSet.Create(1, 3));
         board.SetCell(0, 0, filledCell);
 
         var command = new ClearCellCommand(0, 0, filledCell);
@@ -40,7 +41,7 @@ public class ClearCellCommandTests
     {
         // Arrange
         var board = SudokuBoard.CreateEmpty();
-        var originalCell = new Cell(0, 0, value: 7, state: CellState.Filled).WithNotes(new List<int> { 2, 4, 6 });
+        var originalCell = new Cell(0, 0, value: 7, state: CellState.Filled).WithNotes(ImmutableHashSet.Create(2, 4, 6));
         board.SetCell(0, 0, originalCell);
 
         var command = new ClearCellCommand(0, 0, originalCell);
