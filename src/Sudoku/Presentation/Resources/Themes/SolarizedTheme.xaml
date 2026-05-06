@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Solarized Theme Color Palette - Warm, calming Solarized colors -->
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Solarized">
+            <!-- Solarized Base Colors -->
+            <Color x:Key="SolarizedBase03">#002B36</Color>
+            <Color x:Key="SolarizedBase02">#073642</Color>
+            <Color x:Key="SolarizedBase01">#586E75</Color>
+            <Color x:Key="SolarizedBase00">#657B83</Color>
+            <Color x:Key="SolarizedBase0">#839496</Color>
+            <Color x:Key="SolarizedBase1">#93A1A1</Color>
+            <Color x:Key="SolarizedBase2">#EEE8D5</Color>
+            <Color x:Key="SolarizedBase3">#FDF6E3</Color>
+
+            <!-- Solarized Accent Colors -->
+            <Color x:Key="SolarizedYellow">#B58900</Color>
+            <Color x:Key="SolarizedOrange">#CB4B16</Color>
+            <Color x:Key="SolarizedRed">#DC322F</Color>
+            <Color x:Key="SolarizedMagenta">#D33682</Color>
+            <Color x:Key="SolarizedViolet">#6C71C4</Color>
+            <Color x:Key="SolarizedBlue">#268BD2</Color>
+            <Color x:Key="SolarizedCyan">#2AA198</Color>
+            <Color x:Key="SolarizedGreen">#859900</Color>
+
+            <!-- Base Colors (Light Solarized) -->
+            <Color x:Key="SudokuBackgroundColor">#FDF6E3</Color>
+            <Color x:Key="SudokuSurfaceColor">#EEE8D5</Color>
+            <Color x:Key="SudokuBorderColor">#D6D0BE</Color>
+            <Color x:Key="SudokuTextColor">#002B36</Color>
+            <Color x:Key="SudokuTextSecondaryColor">#586E75</Color>
+
+            <!-- Cell States -->
+            <Color x:Key="CellEmptyColor">#FFFFFF</Color>
+            <Color x:Key="CellGivenColor">#EEE8D5</Color>
+            <Color x:Key="CellFilledColor">#FDF6E3</Color>
+            <Color x:Key="CellErrorColor">#F4DDDB</Color>
+
+            <!-- Interactive States -->
+            <Color x:Key="CellSelectedColor">#268BD2</Color>
+            <Color x:Key="CellHighlightColor">#E8F1F8</Color>
+            <Color x:Key="BlockSeparatorColor">#002B36</Color>
+            <Color x:Key="CellBorderColor">#D6D0BE</Color>
+
+            <!-- Accent Colors -->
+            <Color x:Key="AccentColor">#268BD2</Color>
+            <Color x:Key="SuccessColor">#859900</Color>
+            <Color x:Key="WarningColor">#B58900</Color>
+            <Color x:Key="ErrorColor">#DC322F</Color>
+
+            <!-- Brushes -->
+            <SolidColorBrush x:Key="SudokuBackgroundBrush" Color="{StaticResource SudokuBackgroundColor}"/>
+            <SolidColorBrush x:Key="SudokuSurfaceBrush" Color="{StaticResource SudokuSurfaceColor}"/>
+            <SolidColorBrush x:Key="SudokuBorderBrush" Color="{StaticResource SudokuBorderColor}"/>
+            <SolidColorBrush x:Key="SudokuTextBrush" Color="{StaticResource SudokuTextColor}"/>
+            <SolidColorBrush x:Key="SudokuTextSecondaryBrush" Color="{StaticResource SudokuTextSecondaryColor}"/>
+
+            <SolidColorBrush x:Key="CellEmptyBrush" Color="{StaticResource CellEmptyColor}"/>
+            <SolidColorBrush x:Key="CellGivenBrush" Color="{StaticResource CellGivenColor}"/>
+            <SolidColorBrush x:Key="CellFilledBrush" Color="{StaticResource CellFilledColor}"/>
+            <SolidColorBrush x:Key="CellErrorBrush" Color="{StaticResource CellErrorColor}"/>
+
+            <SolidColorBrush x:Key="CellSelectedBrush" Color="{StaticResource CellSelectedColor}"/>
+            <SolidColorBrush x:Key="CellHighlightBrush" Color="{StaticResource CellHighlightColor}"/>
+            <SolidColorBrush x:Key="BlockSeparatorBrush" Color="{StaticResource BlockSeparatorColor}"/>
+            <SolidColorBrush x:Key="CellBorderBrush" Color="{StaticResource CellBorderColor}"/>
+
+            <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+            <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}"/>
+            <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}"/>
+            <SolidColorBrush x:Key="ErrorBrush" Color="{StaticResource ErrorColor}"/>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

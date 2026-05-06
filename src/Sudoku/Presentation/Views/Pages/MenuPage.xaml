@@ -1,68 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version=1.0 encoding=utf-8?>
 <Page
-    x:Class="Sudoku.Presentation.Views.Pages.MenuPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    x:Class=Sudoku.Presentation.Views.Pages.MenuPage
+    xmlns=http://schemas.microsoft.com/winfx/2006/xaml/presentation
+    xmlns:x=http://schemas.microsoft.com/winfx/2006/xaml>
 
-    <Grid Background="Transparent">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source=ms-appx:///Presentation/Resources/Styles/Typography.xaml/>
+                <ResourceDictionary Source=ms-appx:///Presentation/Resources/Styles/ButtonStyles.xaml/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background={ThemeResource SudokuBackgroundBrush}>
         <StackPanel
-            Orientation="Vertical"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            Spacing="20">
+            Orientation=Vertical
+            VerticalAlignment=Center
+            HorizontalAlignment=Center
+            Spacing=20>
 
             <!-- Hero Section -->
             <TextBlock
-                Text="Sudoku"
-                FontSize="72"
-                FontWeight="Bold"
-                TextAlignment="Center"
-                Foreground="#1F1F1F"/>
+                x:Uid=MenuPage_Title
+                Text=Sudoku
+                Style={StaticResource GameTitleStyle}/>
 
             <TextBlock
-                Text="Challenge Your Mind"
-                FontSize="24"
-                TextAlignment="Center"
-                Foreground="#595959"/>
+                x:Uid=MenuPage_Subtitle
+                Text=Challenge Your Mind
+                Style={StaticResource BodyTextStyle}
+                TextAlignment=Center
+                FontSize=20/>
 
             <!-- Daily Challenge Card -->
             <Border
-                Background="#F0F0F0"
-                CornerRadius="8"
-                Padding="20"
-                Width="300"
-                HorizontalAlignment="Center">
-                <StackPanel Orientation="Vertical" Spacing="10">
+                Background={ThemeResource SudokuSurfaceBrush}
+                CornerRadius=8
+                Padding=20
+                Width=300
+                HorizontalAlignment=Center
+                BorderBrush={ThemeResource SudokuBorderBrush}
+                BorderThickness=1>
+                <StackPanel Orientation=Vertical Spacing=10>
                     <TextBlock
-                        Text="Daily Challenge"
-                        FontSize="18"
-                        FontWeight="SemiBold"/>
+                        x:Uid=MenuPage_DailyChallengeLabel
+                        Text=Daily Challenge
+                        Style={StaticResource SectionHeaderStyle}/>
                     <TextBlock
-                        x:Name="DailyChallengeText"
-                        Text="Medium Difficulty"
-                        FontSize="14"/>
+                        x:Name=DailyChallengeText
+                        Text=Medium Difficulty
+                        Style={StaticResource BodyTextStyle}/>
                     <Button
-                        Content="Play Daily Challenge"
-                        HorizontalAlignment="Stretch"/>
+                        x:Uid=MenuPage_PlayDailyButton
+                        Content=Play Daily Challenge
+                        Style={StaticResource ActionButtonStyle}
+                        HorizontalAlignment=Stretch/>
                 </StackPanel>
             </Border>
 
             <!-- Main Buttons -->
-            <StackPanel Orientation="Vertical" Spacing="10" Width="300">
+            <StackPanel Orientation=Vertical Spacing=10 Width=300>
                 <Button
-                    Content="Start New Game"
-                    HorizontalAlignment="Stretch"
-                    Command="{Binding StartGameCommand}"/>
+                    x:Uid=MenuPage_StartNewGameButton
+                    Content=Start New Game
+                    Style={StaticResource ActionButtonStyle}
+                    HorizontalAlignment=Stretch
+                    Command={Binding StartGameCommand}/>
 
                 <Button
-                    Content="Continue Game"
-                    HorizontalAlignment="Stretch"
-                    Command="{Binding ContinueGameCommand}"/>
+                    x:Uid=MenuPage_ContinueGameButton
+                    Content=Continue Game
+                    Style={StaticResource SecondaryButtonStyle}
+                    HorizontalAlignment=Stretch
+                    Command={Binding ContinueGameCommand}/>
 
                 <Button
-                    Content="View Statistics"
-                    HorizontalAlignment="Stretch"
-                    Command="{Binding ViewStatisticsCommand}"/>
+                    x:Uid=MenuPage_ViewStatisticsButton
+                    Content=View Statistics
+                    Style={StaticResource SecondaryButtonStyle}
+                    HorizontalAlignment=Stretch
+                    Command={Binding ViewStatisticsCommand}/>
             </StackPanel>
         </StackPanel>
     </Grid>

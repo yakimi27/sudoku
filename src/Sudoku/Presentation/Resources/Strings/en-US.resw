@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- Menu Page Strings -->
+  <data name="MenuPage_Title" xml:space="preserve">
+    <value>Sudoku</value>
+  </data>
+  <data name="MenuPage_Subtitle" xml:space="preserve">
+    <value>Challenge Your Mind</value>
+  </data>
+  <data name="MenuPage_DailyChallengeLabel" xml:space="preserve">
+    <value>Daily Challenge</value>
+  </data>
+  <data name="MenuPage_PlayDailyButton" xml:space="preserve">
+    <value>Play Daily Challenge</value>
+  </data>
+  <data name="MenuPage_StartNewGameButton" xml:space="preserve">
+    <value>Start New Game</value>
+  </data>
+  <data name="MenuPage_ContinueGameButton" xml:space="preserve">
+    <value>Continue Game</value>
+  </data>
+  <data name="MenuPage_ViewStatisticsButton" xml:space="preserve">
+    <value>View Statistics</value>
+  </data>
+
+  <!-- Game Page Strings -->
+  <data name="GamePage_PauseButton" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="GamePage_UndoButton" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="GamePage_RedoButton" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="GamePage_GiveUpButton" xml:space="preserve">
+    <value>Give Up</value>
+  </data>
+  <data name="GamePage_NumberPadLabel" xml:space="preserve">
+    <value>Number Pad</value>
+  </data>
+  <data name="GamePage_ClearButton" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="GamePage_NotesButton" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="GamePage_HintsLabel" xml:space="preserve">
+    <value>Hints</value>
+  </data>
+  <data name="GamePage_GetHintButton" xml:space="preserve">
+    <value>Get Hint</value>
+  </data>
+
+  <!-- Statistics Page Strings -->
+  <data name="StatisticsPage_Title" xml:space="preserve">
+    <value>Game Statistics</value>
+  </data>
+  <data name="StatisticsPage_TotalGamesLabel" xml:space="preserve">
+    <value>Total Games Completed</value>
+  </data>
+  <data name="StatisticsPage_LoadButton" xml:space="preserve">
+    <value>Load Statistics</value>
+  </data>
+  <data name="StatisticsPage_ResetButton" xml:space="preserve">
+    <value>Reset Statistics</value>
+  </data>
+  <data name="StatisticsPage_ResetConfirmation" xml:space="preserve">
+    <value>Are you sure you want to reset all statistics? This cannot be undone.</value>
+  </data>
+  <data name="StatisticsPage_ConfirmResetButton" xml:space="preserve">
+    <value>Yes, Reset</value>
+  </data>
+  <data name="StatisticsPage_CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+
+  <!-- Profile Page Strings -->
+  <data name="ProfilePage_Title" xml:space="preserve">
+    <value>Player Profile</value>
+  </data>
+  <data name="ProfilePage_AvatarLabel" xml:space="preserve">
+    <value>Avatar</value>
+  </data>
+  <data name="ProfilePage_PlayerNameLabel" xml:space="preserve">
+    <value>Player Name</value>
+  </data>
+  <data name="ProfilePage_PlayerNamePlaceholder" xml:space="preserve">
+    <value>Enter your name</value>
+  </data>
+  <data name="ProfilePage_StatisticsLabel" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="ProfilePage_LevelLabel" xml:space="preserve">
+    <value>Level:</value>
+  </data>
+  <data name="ProfilePage_ExperienceLabel" xml:space="preserve">
+    <value>Experience Points:</value>
+  </data>
+  <data name="ProfilePage_AchievementsLabel" xml:space="preserve">
+    <value>Achievements:</value>
+  </data>
+  <data name="ProfilePage_SaveButton" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+
+  <!-- Settings Page Strings -->
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsPage_AppearanceLabel" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="SettingsPage_ThemeLabel" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="SettingsPage_LanguageLabel" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SettingsPage_InterfaceLanguageLabel" xml:space="preserve">
+    <value>Interface Language</value>
+  </data>
+  <data name="SettingsPage_GameplayLabel" xml:space="preserve">
+    <value>Gameplay</value>
+  </data>
+  <data name="SettingsPage_ShowHintsLabel" xml:space="preserve">
+    <value>Show Hints</value>
+  </data>
+  <data name="SettingsPage_SoundEffectsLabel" xml:space="preserve">
+    <value>Sound Effects</value>
+  </data>
+
+  <!-- Navigation Strings -->
+  <data name="Navigation_MenuButton" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Navigation_GameButton" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="Navigation_StatisticsButton" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="Navigation_SettingsButton" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Navigation_ProfileButton" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+
+  <!-- Difficulty Names -->
+  <data name="Difficulty_Easy" xml:space="preserve">
+    <value>Easy</value>
+  </data>
+  <data name="Difficulty_Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="Difficulty_Hard" xml:space="preserve">
+    <value>Hard</value>
+  </data>
+  <data name="Difficulty_Expert" xml:space="preserve">
+    <value>Expert</value>
+  </data>
+
+  <!-- Game Mode Names -->
+  <data name="GameMode_Standard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="GameMode_Thermometer" xml:space="preserve">
+    <value>Thermometer</value>
+  </data>
+  <data name="GameMode_Killer" xml:space="preserve">
+    <value>Killer</value>
+  </data>
+  <data name="GameMode_Mini" xml:space="preserve">
+    <value>Mini</value>
+  </data>
+
+  <!-- Theme Names -->
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Theme_Solarized" xml:space="preserve">
+    <value>Solarized</value>
+  </data>
+
+  <!-- Error Messages -->
+  <data name="Error_InvalidInput" xml:space="preserve">
+    <value>Invalid input. Please try again.</value>
+  </data>
+  <data name="Error_GameNotStarted" xml:space="preserve">
+    <value>No game is currently active.</value>
+  </data>
+  <data name="Error_NoHintsRemaining" xml:space="preserve">
+    <value>No hints remaining.</value>
+  </data>
+</root>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- SudokuCellControl Style -->
+    <Style x:Key="SudokuCellStyle" TargetType="Grid">
+        <Setter Property="Width" Value="60"/>
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Background" Value="{ThemeResource CellEmptyBrush}"/>
+        <Setter Property="BorderBrush" Value="{ThemeResource CellBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <!-- Cell Value Text Style -->
+    <Style x:Key="CellValueTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{ThemeResource SudokuTextBrush}"/>
+    </Style>
+
+    <!-- Note Digit Text Style -->
+    <Style x:Key="NoteDigitTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="9"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{ThemeResource SudokuTextSecondaryBrush}"/>
+    </Style>
+
+    <!-- Cell Selection Border Template -->
+    <ControlTemplate x:Key="CellSelectionBorder" TargetType="Border">
+        <Border BorderThickness="3" BorderBrush="{ThemeResource CellSelectedBrush}"/>
+    </ControlTemplate>
+
+    <!-- Cell Highlight Background -->
+    <Style x:Key="CellHighlightRectangle" TargetType="Rectangle">
+        <Setter Property="Fill" Value="{ThemeResource CellHighlightBrush}"/>
+    </Style>
+
+    <!-- Cell Error Background -->
+    <Style x:Key="CellErrorRectangle" TargetType="Rectangle">
+        <Setter Property="Fill" Value="{ThemeResource CellErrorBrush}"/>
+    </Style>
+
+    <!-- Cell Given Background -->
+    <Style x:Key="CellGivenRectangle" TargetType="Rectangle">
+        <Setter Property="Fill" Value="{ThemeResource CellGivenBrush}"/>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- Menu Page Strings -->
+  <data name="MenuPage_Title" xml:space="preserve">
+    <value>Судоку</value>
+  </data>
+  <data name="MenuPage_Subtitle" xml:space="preserve">
+    <value>Перевірте свій розум</value>
+  </data>
+  <data name="MenuPage_DailyChallengeLabel" xml:space="preserve">
+    <value>Щоденний виклик</value>
+  </data>
+  <data name="MenuPage_PlayDailyButton" xml:space="preserve">
+    <value>Грати щоденний виклик</value>
+  </data>
+  <data name="MenuPage_StartNewGameButton" xml:space="preserve">
+    <value>Почати нову гру</value>
+  </data>
+  <data name="MenuPage_ContinueGameButton" xml:space="preserve">
+    <value>Продовжити гру</value>
+  </data>
+  <data name="MenuPage_ViewStatisticsButton" xml:space="preserve">
+    <value>Переглянути статистику</value>
+  </data>
+
+  <!-- Game Page Strings -->
+  <data name="GamePage_PauseButton" xml:space="preserve">
+    <value>Пауза</value>
+  </data>
+  <data name="GamePage_UndoButton" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+  <data name="GamePage_RedoButton" xml:space="preserve">
+    <value>Повторити</value>
+  </data>
+  <data name="GamePage_GiveUpButton" xml:space="preserve">
+    <value>Здатися</value>
+  </data>
+  <data name="GamePage_NumberPadLabel" xml:space="preserve">
+    <value>Клавіатура чисел</value>
+  </data>
+  <data name="GamePage_ClearButton" xml:space="preserve">
+    <value>Очистити</value>
+  </data>
+  <data name="GamePage_NotesButton" xml:space="preserve">
+    <value>Замітки</value>
+  </data>
+  <data name="GamePage_HintsLabel" xml:space="preserve">
+    <value>Підказки</value>
+  </data>
+  <data name="GamePage_GetHintButton" xml:space="preserve">
+    <value>Отримати підказку</value>
+  </data>
+
+  <!-- Statistics Page Strings -->
+  <data name="StatisticsPage_Title" xml:space="preserve">
+    <value>Статистика гри</value>
+  </data>
+  <data name="StatisticsPage_TotalGamesLabel" xml:space="preserve">
+    <value>Всього завершено ігор</value>
+  </data>
+  <data name="StatisticsPage_LoadButton" xml:space="preserve">
+    <value>Завантажити статистику</value>
+  </data>
+  <data name="StatisticsPage_ResetButton" xml:space="preserve">
+    <value>Скинути статистику</value>
+  </data>
+  <data name="StatisticsPage_ResetConfirmation" xml:space="preserve">
+    <value>Ви впевнені, що хочете скинути всю статистику? Це неможливо скасувати.</value>
+  </data>
+  <data name="StatisticsPage_ConfirmResetButton" xml:space="preserve">
+    <value>Так, скинути</value>
+  </data>
+  <data name="StatisticsPage_CancelButton" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+
+  <!-- Profile Page Strings -->
+  <data name="ProfilePage_Title" xml:space="preserve">
+    <value>Профіль гравця</value>
+  </data>
+  <data name="ProfilePage_AvatarLabel" xml:space="preserve">
+    <value>Аватар</value>
+  </data>
+  <data name="ProfilePage_PlayerNameLabel" xml:space="preserve">
+    <value>Ім'я гравця</value>
+  </data>
+  <data name="ProfilePage_PlayerNamePlaceholder" xml:space="preserve">
+    <value>Введіть своє ім'я</value>
+  </data>
+  <data name="ProfilePage_StatisticsLabel" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
+  <data name="ProfilePage_LevelLabel" xml:space="preserve">
+    <value>Рівень:</value>
+  </data>
+  <data name="ProfilePage_ExperienceLabel" xml:space="preserve">
+    <value>Очки досвіду:</value>
+  </data>
+  <data name="ProfilePage_AchievementsLabel" xml:space="preserve">
+    <value>Досягнення:</value>
+  </data>
+  <data name="ProfilePage_SaveButton" xml:space="preserve">
+    <value>Зберегти зміни</value>
+  </data>
+
+  <!-- Settings Page Strings -->
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>Параметри</value>
+  </data>
+  <data name="SettingsPage_AppearanceLabel" xml:space="preserve">
+    <value>Зовнішній вигляд</value>
+  </data>
+  <data name="SettingsPage_ThemeLabel" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="SettingsPage_LanguageLabel" xml:space="preserve">
+    <value>Мова</value>
+  </data>
+  <data name="SettingsPage_InterfaceLanguageLabel" xml:space="preserve">
+    <value>Мова інтерфейсу</value>
+  </data>
+  <data name="SettingsPage_GameplayLabel" xml:space="preserve">
+    <value>Геймплей</value>
+  </data>
+  <data name="SettingsPage_ShowHintsLabel" xml:space="preserve">
+    <value>Показувати підказки</value>
+  </data>
+  <data name="SettingsPage_SoundEffectsLabel" xml:space="preserve">
+    <value>Звукові ефекти</value>
+  </data>
+
+  <!-- Navigation Strings -->
+  <data name="Navigation_MenuButton" xml:space="preserve">
+    <value>Меню</value>
+  </data>
+  <data name="Navigation_GameButton" xml:space="preserve">
+    <value>Гра</value>
+  </data>
+  <data name="Navigation_StatisticsButton" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
+  <data name="Navigation_SettingsButton" xml:space="preserve">
+    <value>Параметри</value>
+  </data>
+  <data name="Navigation_ProfileButton" xml:space="preserve">
+    <value>Профіль</value>
+  </data>
+
+  <!-- Difficulty Names -->
+  <data name="Difficulty_Easy" xml:space="preserve">
+    <value>Легко</value>
+  </data>
+  <data name="Difficulty_Medium" xml:space="preserve">
+    <value>Середньо</value>
+  </data>
+  <data name="Difficulty_Hard" xml:space="preserve">
+    <value>Складно</value>
+  </data>
+  <data name="Difficulty_Expert" xml:space="preserve">
+    <value>Експерт</value>
+  </data>
+
+  <!-- Game Mode Names -->
+  <data name="GameMode_Standard" xml:space="preserve">
+    <value>Стандартний</value>
+  </data>
+  <data name="GameMode_Thermometer" xml:space="preserve">
+    <value>Термометр</value>
+  </data>
+  <data name="GameMode_Killer" xml:space="preserve">
+    <value>Убивця</value>
+  </data>
+  <data name="GameMode_Mini" xml:space="preserve">
+    <value>Міні</value>
+  </data>
+
+  <!-- Theme Names -->
+  <data name="Theme_Light" xml:space="preserve">
+    <value>Світла</value>
+  </data>
+  <data name="Theme_Dark" xml:space="preserve">
+    <value>Темна</value>
+  </data>
+  <data name="Theme_Solarized" xml:space="preserve">
+    <value>Solarized</value>
+  </data>
+
+  <!-- Error Messages -->
+  <data name="Error_InvalidInput" xml:space="preserve">
+    <value>Невірний ввід. Будь ласка, спробуйте ще раз.</value>
+  </data>
+  <data name="Error_GameNotStarted" xml:space="preserve">
+    <value>Жодна гра не активна.</value>
+  </data>
+  <data name="Error_NoHintsRemaining" xml:space="preserve">
+    <value>Підказки закінчилися.</value>
+  </data>
+</root>

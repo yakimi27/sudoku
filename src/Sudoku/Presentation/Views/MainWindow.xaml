@@ -1,27 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version=1.0 encoding=utf-8?>
 <Window
-    x:Class="Sudoku.Presentation.Views.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Sudoku">
+    x:Class=Sudoku.Presentation.Views.MainWindow
+    xmlns=http://schemas.microsoft.com/winfx/2006/xaml/presentation
+    xmlns:x=http://schemas.microsoft.com/winfx/2006/xaml
+    Title=Sudoku>
 
-    <Grid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source=ms-appx:///Presentation/Resources/Themes/LightTheme.xaml/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Background={ThemeResource SudokuBackgroundBrush}>
         <NavigationView
-            x:Name="NavigationView"
-            DisplayMode="Auto"
-            SelectionChanged="NavigationView_SelectionChanged">
+            x:Name=NavigationView
+            DisplayMode=Auto
+            SelectionChanged=NavigationView_SelectionChanged
+            Foreground={ThemeResource SudokuTextBrush}>
 
             <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Home" Content="Menu" Tag="Menu"/>
-                <NavigationViewItem Icon="Play" Content="Game" Tag="Game"/>
-                <NavigationViewItem Icon="TrendingUp" Content="Statistics" Tag="Statistics"/>
-                <NavigationViewItem Icon="Setting" Content="Settings" Tag="Settings"/>
-                <NavigationViewItem Icon="Contact" Content="Profile" Tag="Profile"/>
+                <NavigationViewItem Icon=Home x:Uid=Navigation_MenuButton Content=Menu Tag=Menu/>
+                <NavigationViewItem Icon=Play x:Uid=Navigation_GameButton Content=Game Tag=Game/>
+                <NavigationViewItem Icon=TrendingUp x:Uid=Navigation_StatisticsButton Content=Statistics Tag=Statistics/>
+                <NavigationViewItem Icon=Setting x:Uid=Navigation_SettingsButton Content=Settings Tag=Settings/>
+                <NavigationViewItem Icon=Contact x:Uid=Navigation_ProfileButton Content=Profile Tag=Profile/>
             </NavigationView.MenuItems>
 
             <Frame
-                x:Name="ContentFrame"
-                NavigationFailed="ContentFrame_NavigationFailed"/>
+                x:Name=ContentFrame
+                NavigationFailed=ContentFrame_NavigationFailed/>
         </NavigationView>
     </Grid>
 </Window>
