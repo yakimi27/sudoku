@@ -1,54 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version=1.0 encoding=utf-8?>
 <Page
-    x:Class="Sudoku.Presentation.Views.Pages.GamePage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Sudoku.Presentation.Views.Controls">
+    x:Class=Sudoku.Presentation.Views.Pages.GamePage
+    xmlns=http://schemas.microsoft.com/winfx/2006/xaml/presentation
+    xmlns:x=http://schemas.microsoft.com/winfx/2006/xaml
+    xmlns:local=using:Sudoku.Presentation.Views.Controls>
 
-    <Grid Background="Transparent">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source=ms-appx:///Presentation/Resources/Styles/ButtonStyles.xaml/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background={ThemeResource SudokuBackgroundBrush}>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width=*/>
+            <ColumnDefinition Width=Auto/>
         </Grid.ColumnDefinitions>
 
         <!-- Board Section -->
         <StackPanel
-            Grid.Column="0"
-            Orientation="Vertical"
-            Padding="20"
-            Spacing="10"
-            HorizontalAlignment="Center">
+            Grid.Column=0
+            Orientation=Vertical
+            Padding=20
+            Spacing=10
+            HorizontalAlignment=Center>
 
             <!-- Timer and Game Controls -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
-                <local:TimerControl x:Name="TimerControl"/>
-                <Button Content="Pause" Command="{Binding PauseGameCommand}"/>
-                <Button Content="Undo" Command="{Binding UndoCommand}"/>
-                <Button Content="Redo" Command="{Binding RedoCommand}"/>
+            <StackPanel Orientation=Horizontal HorizontalAlignment=Center Spacing=10>
+                <local:TimerControl x:Name=TimerControl/>
+                <Button x:Uid=GamePage_PauseButton Content=Pause Style={StaticResource ActionButtonStyle} Command={Binding PauseGameCommand}/>
+                <Button x:Uid=GamePage_UndoButton Content=Undo Style={StaticResource SecondaryButtonStyle} Command={Binding UndoCommand}/>
+                <Button x:Uid=GamePage_RedoButton Content=Redo Style={StaticResource SecondaryButtonStyle} Command={Binding RedoCommand}/>
             </StackPanel>
 
             <!-- Sudoku Board -->
             <local:SudokuBoardControl
-                x:Name="BoardControl"
-                Board="{Binding BoardViewModel}"/>
+                x:Name=BoardControl
+                Board={Binding BoardViewModel}/>
         </StackPanel>
 
         <!-- Controls Section -->
         <StackPanel
-            Grid.Column="1"
-            Orientation="Vertical"
-            Padding="20"
-            Spacing="10"
-            Width="200">
+            Grid.Column=1
+            Orientation=Vertical
+            Padding=20
+            Spacing=10
+            Width=200>
 
             <!-- Hints -->
-            <local:HintButtonControl x:Name="HintControl"/>
+            <local:HintButtonControl x:Name=HintControl/>
 
             <!-- Number Pad -->
-            <local:NumberPadControl x:Name="NumberPadControl"/>
+            <local:NumberPadControl x:Name=NumberPadControl/>
 
             <!-- Game Actions -->
-            <Button Content="Give Up" Command="{Binding GiveUpCommand}"/>
+            <Button x:Uid=GamePage_GiveUpButton Content=Give Up Style={StaticResource DangerActionButtonStyle} Command={Binding GiveUpCommand}/>
         </StackPanel>
     </Grid>
 </Page>

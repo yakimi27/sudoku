@@ -1,62 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version=1.0 encoding=utf-8?>
 <Page
-    x:Class="Sudoku.Presentation.Views.Pages.StatisticsPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    x:Class=Sudoku.Presentation.Views.Pages.StatisticsPage
+    xmlns=http://schemas.microsoft.com/winfx/2006/xaml/presentation
+    xmlns:x=http://schemas.microsoft.com/winfx/2006/xaml>
 
-    <Grid Background="Transparent" Padding="20">
-        <StackPanel Orientation="Vertical" Spacing="20">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source=ms-appx:///Presentation/Resources/Styles/Typography.xaml/>
+                <ResourceDictionary Source=ms-appx:///Presentation/Resources/Styles/ButtonStyles.xaml/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background={ThemeResource SudokuBackgroundBrush} Padding=20>
+        <StackPanel Orientation=Vertical Spacing=20>
             <!-- Header -->
             <TextBlock
-                Text="Game Statistics"
-                FontSize="32"
-                FontWeight="Bold"/>
+                x:Uid=StatisticsPage_Title
+                Text=Game Statistics
+                Style={StaticResource PageTitleStyle}/>
 
             <!-- Stats Summary -->
-            <StackPanel Orientation="Horizontal" Spacing="40">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Total Games Completed" FontSize="14" Foreground="#595959"/>
+            <StackPanel Orientation=Horizontal Spacing=40>
+                <StackPanel Orientation=Vertical>
                     <TextBlock
-                        Text="{Binding TotalGamesCompleted}"
-                        FontSize="28"
-                        FontWeight="Bold"/>
+                        x:Uid=StatisticsPage_TotalGamesLabel
+                        Text=Total Games Completed
+                        Foreground={ThemeResource SudokuTextSecondaryBrush}
+                        FontSize=14/>
+                    <TextBlock
+                        Text={Binding TotalGamesCompleted}
+                        Style={StaticResource StatValueStyle}/>
                 </StackPanel>
             </StackPanel>
 
             <!-- Statistics Content -->
             <TextBlock
-                Text="{Binding StatisticsData}"
-                TextWrapping="Wrap"
-                FontSize="12"/>
+                Text={Binding StatisticsData}
+                Style={StaticResource BodyTextStyle}/>
 
             <!-- Actions -->
-            <StackPanel Orientation="Horizontal" Spacing="10">
+            <StackPanel Orientation=Horizontal Spacing=10>
                 <Button
-                    Content="Load Statistics"
-                    Command="{Binding LoadStatisticsCommand}"/>
+                    x:Uid=StatisticsPage_LoadButton
+                    Content=Load Statistics
+                    Style={StaticResource ActionButtonStyle}
+                    Command={Binding LoadStatisticsCommand}/>
                 <Button
-                    Content="Reset Statistics"
-                    Command="{Binding ResetStatisticsCommand}"/>
+                    x:Uid=StatisticsPage_ResetButton
+                    Content=Reset Statistics
+                    Style={StaticResource DangerActionButtonStyle}
+                    Command={Binding ResetStatisticsCommand}/>
             </StackPanel>
 
             <!-- Reset Confirmation -->
             <Border
-                Background="#FFF4E4"
-                CornerRadius="8"
-                Padding="15"
-                Visibility="{Binding ShowResetConfirmation, Converter={StaticResource BoolToVisibilityConverter}}">
-                <StackPanel Orientation="Vertical" Spacing="10">
+                Background={ThemeResource WarningBrush}
+                CornerRadius=8
+                Padding=15
+                Visibility={Binding ShowResetConfirmation, Converter={StaticResource BoolToVisibilityConverter}}>
+                <StackPanel Orientation=Vertical Spacing=10>
                     <TextBlock
-                        Text="Are you sure you want to reset all statistics? This cannot be undone."
-                        TextWrapping="Wrap"/>
-                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        x:Uid=StatisticsPage_ResetConfirmation
+                        Text=Are you sure you want to reset all statistics? This cannot be undone.
+                        Style={StaticResource BodyTextStyle}/>
+                    <StackPanel Orientation=Horizontal Spacing=10>
                         <Button
-                            Content="Yes, Reset"
-                            Command="{Binding ConfirmResetCommand}"
-                            Background="#DC3545"/>
+                            x:Uid=StatisticsPage_ConfirmResetButton
+                            Content=Yes, Reset
+                            Style={StaticResource DangerActionButtonStyle}
+                            Command={Binding ConfirmResetCommand}/>
                         <Button
-                            Content="Cancel"
-                            Command="{Binding CancelResetCommand}"/>
+                            x:Uid=StatisticsPage_CancelButton
+                            Content=Cancel
+                            Style={StaticResource SecondaryButtonStyle}
+                            Command={Binding CancelResetCommand}/>
                     </StackPanel>
                 </StackPanel>
             </Border>
