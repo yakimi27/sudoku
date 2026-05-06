@@ -9,6 +9,7 @@ namespace Sudoku.Presentation.ViewModels;
 /// <summary>
 /// ViewModel for the active game, managing game state, board, commands, and service interactions.
 /// Handles cell selection, value entry, note management, undo/redo, hints, and win detection.
+/// Integrates autosave to persist game progress automatically.
 /// </summary>
 public class GameViewModel : ObservableObject
 {
@@ -16,6 +17,7 @@ public class GameViewModel : ObservableObject
     private readonly ITimerService _timerService;
     private readonly CommandHistory _commandHistory;
     private readonly IStatisticsService _statisticsService;
+    private readonly IAutoSaveService _autoSaveService;
 
     private GameSession? _gameSession;
     private BoardViewModel? _boardViewModel;
@@ -42,17 +44,20 @@ public class GameViewModel : ObservableObject
     /// <param name="timerService">The timer service for tracking game time.</param>
     /// <param name="commandHistory">The command history for undo/redo.</param>
     /// <param name="statisticsService">The statistics service for recording completions.</param>
+    /// <param name="autoSaveService">The autosave service for persisting game progress.</param>
     /// <exception cref="ArgumentNullException">Thrown when any parameter is null.</exception>
     public GameViewModel(
         IHintService hintService,
         ITimerService timerService,
         CommandHistory commandHistory,
-        IStatisticsService statisticsService)
+        IStatisticsService statisticsService,
+        IAutoSaveService autoSaveService)
     {
         _hintService = hintService ?? throw new ArgumentNullException(nameof(hintService));
         _timerService = timerService ?? throw new ArgumentNullException(nameof(timerService));
         _commandHistory = commandHistory ?? throw new ArgumentNullException(nameof(commandHistory));
         _statisticsService = statisticsService ?? throw new ArgumentNullException(nameof(statisticsService));
+        _autoSaveService = autoSaveService ?? throw new ArgumentNullException(nameof(autoSaveService));
 
         _elapsedTime = TimeSpan.Zero;
         _hintsRemaining = _hintService.MaxHints;
@@ -162,7 +167,7 @@ public class GameViewModel : ObservableObject
     }
 
     /// <summary>
-    /// Sets a value in a cell, executing a SetValueCommand.
+    /// Sets a value in a cell, executing a SetValueCommand and triggering autosave.
     /// </summary>
     /// <param name="row">The row index of the cell.</param>
     /// <param name="column">The column index of the cell.</param>
@@ -180,10 +185,13 @@ public class GameViewModel : ObservableObject
         CheckWinCondition();
         OnPropertyChanged(nameof(CanUndo));
         OnPropertyChanged(nameof(CanRedo));
+
+        // Trigger autosave after command execution
+        TriggerAutoSave();
     }
 
     /// <summary>
-    /// Adds or removes a note (candidate) in a cell, executing a SetNoteCommand.
+    /// Adds or removes a note (candidate) in a cell, executing a SetNoteCommand and triggering autosave.
     /// </summary>
     /// <param name="row">The row index of the cell.</param>
     /// <param name="column">The column index of the cell.</param>
@@ -203,6 +211,9 @@ public class GameViewModel : ObservableObject
         RefreshBoardView();
         OnPropertyChanged(nameof(CanUndo));
         OnPropertyChanged(nameof(CanRedo));
+
+        // Trigger autosave after command execution
+        TriggerAutoSave();
     }
 
     /// <summary>
@@ -445,5 +456,18 @@ public class GameViewModel : ObservableObject
     private void OnTimerTimeChanged(object? sender, TimeSpan elapsed)
     {
         ElapsedTime = elapsed;
+    }
+
+    /// <summary>
+    /// Triggers an autosave of the current game session.
+    /// Uses debouncing to avoid excessive disk writes.
+    /// </summary>
+    private void TriggerAutoSave()
+    {
+        if (GameSession != null)
+        {
+            // Fire and forget - don't await, as this is triggered during gameplay
+            _ = _autoSaveService.SaveSessionAsync(GameSession);
+        }
     }
 }
