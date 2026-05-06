@@ -196,4 +196,35 @@
   <data name="Error_NoHintsRemaining" xml:space="preserve">
     <value>No hints remaining.</value>
   </data>
+
+  <!-- Hint Messages -->
+  <data name="Hint_RevealCell" xml:space="preserve">
+    <value>Consider filling in the highlighted cell.</value>
+  </data>
+  <data name="Hint_ShowCandidates" xml:space="preserve">
+    <value>Look at what numbers are possible in this cell.</value>
+  </data>
+  <data name="Hint_EliminateCandidates" xml:space="preserve">
+    <value>You can eliminate some candidates from this cell.</value>
+  </data>
+  <data name="Hint_HighlightRelated" xml:space="preserve">
+    <value>These cells share a row, column, or box - they constrain each other.</value>
+  </data>
+  <data name="Hint_SolveAll" xml:space="preserve">
+    <value>All remaining cells are highlighted - here's the complete solution.</value>
+  </data>
+
+  <!-- Daily Challenge Strings -->
+  <data name="DailyChallenge_Title" xml:space="preserve">
+    <value>Today's Challenge</value>
+  </data>
+  <data name="DailyChallenge_Completed" xml:space="preserve">
+    <value>✓ Completed</value>
+  </data>
+  <data name="DailyChallenge_Incomplete" xml:space="preserve">
+    <value>Not yet completed</value>
+  </data>
+  <data name="DailyChallenge_Streak" xml:space="preserve">
+    <value>Streak</value>
+  </data>
 </root>
