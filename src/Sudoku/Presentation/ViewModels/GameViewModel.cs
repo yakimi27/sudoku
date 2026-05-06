@@ -167,6 +167,28 @@ public class GameViewModel : ObservableObject
     }
 
     /// <summary>
+    /// Restores a previously saved game session and resumes playing.
+    /// Restores board state, elapsed time, hints used, and resumes the timer.
+    /// </summary>
+    /// <param name="session">The saved game session to restore.</param>
+    /// <exception cref="ArgumentNullException">Thrown when session is null.</exception>
+    public void RestorePreviousGame(GameSession session)
+    {
+        if (session == null)
+            throw new ArgumentNullException(nameof(session));
+
+        GameSession = session;
+        BoardViewModel = new BoardViewModel(session.Board);
+        ElapsedTime = session.ElapsedTime;
+        HintsRemaining = _hintService.MaxHints - session.HintsUsed;
+        IsGameActive = true;
+        IsGamePaused = false;
+
+        // Resume the timer from where it left off
+        _timerService.Start();
+    }
+
+    /// <summary>
     /// Sets a value in a cell, executing a SetValueCommand and triggering autosave.
     /// </summary>
     /// <param name="row">The row index of the cell.</param>
