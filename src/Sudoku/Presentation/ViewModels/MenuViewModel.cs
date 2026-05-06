@@ -12,6 +12,9 @@ public class MenuViewModel : ObservableObject
 {
     private DailyChallenge? _dailyChallenge;
     private bool _hasLastSession;
+    private int _currentStreak;
+    private DateTime _todayDate;
+    private string? _dailyChallengeStatus;
 
     /// <summary>
     /// Event raised when the user initiates starting a new game.
@@ -39,18 +42,27 @@ public class MenuViewModel : ObservableObject
     public event EventHandler? ProfileRequested;
 
     /// <summary>
+    /// Event raised when the user wants to play the daily challenge.
+    /// </summary>
+    public event EventHandler? PlayDailyChallengeRequested;
+
+    /// <summary>
     /// Initializes a new instance of the MenuViewModel class.
     /// </summary>
     public MenuViewModel()
     {
         _dailyChallenge = null;
         _hasLastSession = false;
+        _currentStreak = 0;
+        _todayDate = DateTime.UtcNow;
+        _dailyChallengeStatus = null;
 
         StartGameCommand = new RelayCommand(_ => OnStartGame());
         ContinueGameCommand = new RelayCommand(_ => OnContinueGame(), _ => HasLastSession);
         ViewStatisticsCommand = new RelayCommand(_ => OnStatisticsRequested());
         OpenSettingsCommand = new RelayCommand(_ => OnSettingsRequested());
         OpenProfileCommand = new RelayCommand(_ => OnProfileRequested());
+        PlayDailyChallengeCommand = new RelayCommand(_ => OnPlayDailyChallenge(), _ => DailyChallenge != null);
     }
 
     /// <summary>
@@ -104,16 +116,84 @@ public class MenuViewModel : ObservableObject
     public RelayCommand OpenProfileCommand { get; }
 
     /// <summary>
-    /// Loads daily challenge information.
+    /// Gets the command to play the daily challenge.
+    /// </summary>
+    public RelayCommand PlayDailyChallengeCommand { get; }
+
+    /// <summary>
+    /// Gets the current streak count for consecutive daily challenge completions.
+    /// </summary>
+    public int CurrentStreak
+    {
+        get => _currentStreak;
+        set => SetProperty(ref _currentStreak, value);
+    }
+
+    /// <summary>
+    /// Gets today's date for display in the daily challenge card.
+    /// </summary>
+    public DateTime TodayDate
+    {
+        get => _todayDate;
+        private set => SetProperty(ref _todayDate, value);
+    }
+
+    /// <summary>
+    /// Gets the status string for today's daily challenge ("Completed" or "Incomplete").
+    /// </summary>
+    public string? DailyChallengeStatus
+    {
+        get => _dailyChallengeStatus;
+        set => SetProperty(ref _dailyChallengeStatus, value);
+    }
+
+    /// <summary>
+    /// Loads daily challenge information and updates display state.
     /// </summary>
     /// <param name="dailyChallenge">The daily challenge for today.</param>
+    /// <param name="streak">The current daily challenge completion streak.</param>
     /// <exception cref="ArgumentNullException">Thrown when dailyChallenge is null.</exception>
-    public void LoadDailyChallenge(DailyChallenge dailyChallenge)
+    public void LoadDailyChallenge(DailyChallenge dailyChallenge, int streak = 0)
     {
         if (dailyChallenge == null)
             throw new ArgumentNullException(nameof(dailyChallenge));
 
         DailyChallenge = dailyChallenge;
+        CurrentStreak = streak;
+        TodayDate = DateTime.UtcNow;
+        UpdateDailyChallengeStatus();
+
+        // Update CanExecute for PlayDailyChallengeCommand
+        (PlayDailyChallengeCommand as RelayCommand)?.RaiseCanExecuteChanged();
+    }
+
+    /// <summary>
+    /// Marks the daily challenge as completed and updates UI state.
+    /// </summary>
+    public void MarkDailyChallengeCompleted()
+    {
+        if (DailyChallenge != null)
+        {
+            DailyChallenge.MarkCompleted(TimeSpan.Zero);
+            UpdateDailyChallengeStatus();
+        }
+    }
+
+    /// <summary>
+    /// Updates the daily challenge status string based on completion state.
+    /// </summary>
+    private void UpdateDailyChallengeStatus()
+    {
+        if (DailyChallenge == null)
+        {
+            DailyChallengeStatus = null;
+            return;
+        }
+
+        // Use localization key - UI will handle translation
+        DailyChallengeStatus = DailyChallenge.IsCompleted
+            ? "DailyChallenge_Completed"
+            : "DailyChallenge_Incomplete";
     }
 
     /// <summary>
@@ -163,5 +243,13 @@ public class MenuViewModel : ObservableObject
     private void OnProfileRequested()
     {
         ProfileRequested?.Invoke(this, EventArgs.Empty);
+    }
+
+    /// <summary>
+    /// Raises the PlayDailyChallengeRequested event.
+    /// </summary>
+    private void OnPlayDailyChallenge()
+    {
+        PlayDailyChallengeRequested?.Invoke(this, EventArgs.Empty);
     }
 }
