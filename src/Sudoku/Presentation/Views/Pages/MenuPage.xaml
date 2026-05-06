@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Sudoku.Presentation.Views.Pages.MenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Background="Transparent">
+        <StackPanel
+            Orientation="Vertical"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Spacing="20">
+
+            <!-- Hero Section -->
+            <TextBlock
+                Text="Sudoku"
+                FontSize="72"
+                FontWeight="Bold"
+                TextAlignment="Center"
+                Foreground="#1F1F1F"/>
+
+            <TextBlock
+                Text="Challenge Your Mind"
+                FontSize="24"
+                TextAlignment="Center"
+                Foreground="#595959"/>
+
+            <!-- Daily Challenge Card -->
+            <Border
+                Background="#F0F0F0"
+                CornerRadius="8"
+                Padding="20"
+                Width="300"
+                HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical" Spacing="10">
+                    <TextBlock
+                        Text="Daily Challenge"
+                        FontSize="18"
+                        FontWeight="SemiBold"/>
+                    <TextBlock
+                        x:Name="DailyChallengeText"
+                        Text="Medium Difficulty"
+                        FontSize="14"/>
+                    <Button
+                        Content="Play Daily Challenge"
+                        HorizontalAlignment="Stretch"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Main Buttons -->
+            <StackPanel Orientation="Vertical" Spacing="10" Width="300">
+                <Button
+                    Content="Start New Game"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding StartGameCommand}"/>
+
+                <Button
+                    Content="Continue Game"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding ContinueGameCommand}"/>
+
+                <Button
+                    Content="View Statistics"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding ViewStatisticsCommand}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

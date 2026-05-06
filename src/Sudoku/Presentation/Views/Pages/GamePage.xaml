@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Sudoku.Presentation.Views.Pages.GamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Sudoku.Presentation.Views.Controls">
+
+    <Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Board Section -->
+        <StackPanel
+            Grid.Column="0"
+            Orientation="Vertical"
+            Padding="20"
+            Spacing="10"
+            HorizontalAlignment="Center">
+
+            <!-- Timer and Game Controls -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                <local:TimerControl x:Name="TimerControl"/>
+                <Button Content="Pause" Command="{Binding PauseGameCommand}"/>
+                <Button Content="Undo" Command="{Binding UndoCommand}"/>
+                <Button Content="Redo" Command="{Binding RedoCommand}"/>
+            </StackPanel>
+
+            <!-- Sudoku Board -->
+            <local:SudokuBoardControl
+                x:Name="BoardControl"
+                Board="{Binding BoardViewModel}"/>
+        </StackPanel>
+
+        <!-- Controls Section -->
+        <StackPanel
+            Grid.Column="1"
+            Orientation="Vertical"
+            Padding="20"
+            Spacing="10"
+            Width="200">
+
+            <!-- Hints -->
+            <local:HintButtonControl x:Name="HintControl"/>
+
+            <!-- Number Pad -->
+            <local:NumberPadControl x:Name="NumberPadControl"/>
+
+            <!-- Game Actions -->
+            <Button Content="Give Up" Command="{Binding GiveUpCommand}"/>
+        </StackPanel>
+    </Grid>
+</Page>

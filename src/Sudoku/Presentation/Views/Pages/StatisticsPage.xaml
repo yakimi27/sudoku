@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Sudoku.Presentation.Views.Pages.StatisticsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Background="Transparent" Padding="20">
+        <StackPanel Orientation="Vertical" Spacing="20">
+            <!-- Header -->
+            <TextBlock
+                Text="Game Statistics"
+                FontSize="32"
+                FontWeight="Bold"/>
+
+            <!-- Stats Summary -->
+            <StackPanel Orientation="Horizontal" Spacing="40">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Total Games Completed" FontSize="14" Foreground="#595959"/>
+                    <TextBlock
+                        Text="{Binding TotalGamesCompleted}"
+                        FontSize="28"
+                        FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Statistics Content -->
+            <TextBlock
+                Text="{Binding StatisticsData}"
+                TextWrapping="Wrap"
+                FontSize="12"/>
+
+            <!-- Actions -->
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <Button
+                    Content="Load Statistics"
+                    Command="{Binding LoadStatisticsCommand}"/>
+                <Button
+                    Content="Reset Statistics"
+                    Command="{Binding ResetStatisticsCommand}"/>
+            </StackPanel>
+
+            <!-- Reset Confirmation -->
+            <Border
+                Background="#FFF4E4"
+                CornerRadius="8"
+                Padding="15"
+                Visibility="{Binding ShowResetConfirmation, Converter={StaticResource BoolToVisibilityConverter}}">
+                <StackPanel Orientation="Vertical" Spacing="10">
+                    <TextBlock
+                        Text="Are you sure you want to reset all statistics? This cannot be undone."
+                        TextWrapping="Wrap"/>
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button
+                            Content="Yes, Reset"
+                            Command="{Binding ConfirmResetCommand}"
+                            Background="#DC3545"/>
+                        <Button
+                            Content="Cancel"
+                            Command="{Binding CancelResetCommand}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>

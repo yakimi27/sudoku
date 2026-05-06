@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="Sudoku.Presentation.Views.Controls.SudokuBoardControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Sudoku.Presentation.Views.Controls">
+
+    <Viewbox Stretch="Uniform" MaxWidth="540" MaxHeight="540">
+        <Grid Width="540" Height="540" Background="White">
+            <!-- 3x3 Block Grid with borders -->
+            <ItemsControl ItemsSource="{Binding Cells}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid
+                            x:Name="BoardGrid"
+                            Width="540"
+                            Height="540"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:SudokuCellControl
+                            Cell="{Binding}"
+                            Tapped="CellControl_Tapped"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <!-- 3x3 Block Separators (Thicker Borders) -->
+            <Grid x:Name="BlockSeparators">
+                <!-- Vertical separators -->
+                <Rectangle
+                    X="180" Y="0" Width="2" Height="540"
+                    Fill="#000000"/>
+                <Rectangle
+                    X="360" Y="0" Width="2" Height="540"
+                    Fill="#000000"/>
+
+                <!-- Horizontal separators -->
+                <Rectangle
+                    X="0" Y="180" Width="540" Height="2"
+                    Fill="#000000"/>
+                <Rectangle
+                    X="0" Y="360" Width="540" Height="2"
+                    Fill="#000000"/>
+            </Grid>
+        </Grid>
+    </Viewbox>
+</UserControl>

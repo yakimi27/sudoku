@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="Sudoku.Presentation.Views.Controls.HintButtonControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel Orientation="Vertical" Spacing="8">
+        <TextBlock Text="Hints" FontSize="14" FontWeight="SemiBold" TextAlignment="Center"/>
+
+        <Border
+            Background="#E8F4FF"
+            CornerRadius="8"
+            Padding="12">
+            <TextBlock
+                Text="{Binding HintsRemaining}"
+                FontSize="24"
+                FontWeight="Bold"
+                TextAlignment="Center"/>
+        </Border>
+
+        <StackPanel Orientation="Vertical" Spacing="4">
+            <Button
+                Content="Get Hint"
+                HorizontalAlignment="Stretch"
+                Command="{Binding UseHintCommand}"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

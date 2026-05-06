@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Sudoku.Presentation.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Sudoku">
+
+    <Grid>
+        <NavigationView
+            x:Name="NavigationView"
+            DisplayMode="Auto"
+            SelectionChanged="NavigationView_SelectionChanged">
+
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Home" Content="Menu" Tag="Menu"/>
+                <NavigationViewItem Icon="Play" Content="Game" Tag="Game"/>
+                <NavigationViewItem Icon="TrendingUp" Content="Statistics" Tag="Statistics"/>
+                <NavigationViewItem Icon="Setting" Content="Settings" Tag="Settings"/>
+                <NavigationViewItem Icon="Contact" Content="Profile" Tag="Profile"/>
+            </NavigationView.MenuItems>
+
+            <Frame
+                x:Name="ContentFrame"
+                NavigationFailed="ContentFrame_NavigationFailed"/>
+        </NavigationView>
+    </Grid>
+</Window>
