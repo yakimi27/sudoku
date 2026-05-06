@@ -196,4 +196,35 @@
   <data name="Error_NoHintsRemaining" xml:space="preserve">
     <value>Підказки закінчилися.</value>
   </data>
+
+  <!-- Hint Messages -->
+  <data name="Hint_RevealCell" xml:space="preserve">
+    <value>Розглянемо заповнення виділеної клітинки.</value>
+  </data>
+  <data name="Hint_ShowCandidates" xml:space="preserve">
+    <value>Подивіться на те, які номери можливі в цій клітинці.</value>
+  </data>
+  <data name="Hint_EliminateCandidates" xml:space="preserve">
+    <value>Ви можете виключити деякі кандидати з цієї клітинки.</value>
+  </data>
+  <data name="Hint_HighlightRelated" xml:space="preserve">
+    <value>Ці клітинки мають спільні рядок, стовпець або блок - вони обмежують один одного.</value>
+  </data>
+  <data name="Hint_SolveAll" xml:space="preserve">
+    <value>Всі залишилися клітинки виділені - ось повне рішення.</value>
+  </data>
+
+  <!-- Daily Challenge Strings -->
+  <data name="DailyChallenge_Title" xml:space="preserve">
+    <value>Щоденний виклик</value>
+  </data>
+  <data name="DailyChallenge_Completed" xml:space="preserve">
+    <value>✓ Завершено</value>
+  </data>
+  <data name="DailyChallenge_Incomplete" xml:space="preserve">
+    <value>Ще не завершено</value>
+  </data>
+  <data name="DailyChallenge_Streak" xml:space="preserve">
+    <value>Серія</value>
+  </data>
 </root>

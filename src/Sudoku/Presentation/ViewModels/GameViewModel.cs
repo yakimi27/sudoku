@@ -137,6 +137,11 @@ public class GameViewModel : ObservableObject
     public bool CanRedo => _commandHistory.CanRedo;
 
     /// <summary>
+    /// Gets a value indicating whether a hint can be used.
+    /// </summary>
+    public bool CanUseHint => IsGameActive && HintsRemaining > 0;
+
+    /// <summary>
     /// Initializes a new game session.
     /// </summary>
     /// <param name="session">The game session to start.</param>
@@ -244,6 +249,7 @@ public class GameViewModel : ObservableObject
             return;
 
         HintsRemaining--;
+        GameSession?.UseHint();
 
         if (GameSession?.Board == null)
             return;
