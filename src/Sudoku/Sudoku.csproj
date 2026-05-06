@@ -1,15 +1,72 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net8.0</TargetFramework>
-        <RootNamespace>Sudoku</RootNamespace>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>Sudoku</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm"
+						  Version="8.2.2" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection"
+						  Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging"
+						  Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Presentation\Resources\Styles\ButtonStyles.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Resources\Styles\CellStyles.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Resources\Styles\Typography.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Resources\Themes\DarkTheme.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Resources\Themes\LightTheme.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Resources\Themes\SolarizedTheme.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\Controls\HintButtonControl.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\Controls\NumberPadControl.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\Controls\SudokuBoardControl.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\Controls\SudokuCellControl.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\Controls\TimerControl.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\MainWindow.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\Pages\GamePage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\Pages\MenuPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\Pages\ProfilePage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\Pages\SettingsPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+		<None Update="Presentation\Views\Pages\StatisticsPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</None>
+	</ItemGroup>
 </Project>
